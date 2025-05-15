@@ -2,63 +2,215 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SendSphere | Gift Redemption</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SendSphere | Parcel Delivery Simplified</title>
   <style>
+    /* Consistent styling with your existing site */
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #00B4DB, #0083B0);
       color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      width: 100%;
+      max-width: 960px;
+      margin-bottom: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 0;
+      letter-spacing: 1.5px;
+      cursor: default;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.25s ease;
+    }
+
+    nav a:hover {
+      color: #f0f0f0;
+    }
+
+    main {
+      max-width: 960px;
+      text-align: center;
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      padding: 0 1rem;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 2rem 3rem;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      max-width: 500px;
-    }
-
-    h1 {
-      margin-bottom: 0.5rem;
-      font-size: 2.2rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
-    }
-
-    .gift-icon {
-      font-size: 3rem;
+    main h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
       margin-bottom: 1rem;
+      max-width: 640px;
+      line-height: 1.2;
     }
 
-    .footer {
-      margin-top: 2rem;
+    main p {
+      font-size: 1.25rem;
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.5;
+    }
+
+    a.cta-button {
+      background: white;
+      color: #0083B0;
+      font-weight: 700;
+      padding: 1rem 3rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 131, 176, 0.4);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+
+    a.cta-button:hover {
+      background: #e6f0f6;
+      color: #005f81;
+    }
+
+    .features {
+      margin-top: 4rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 960px;
+      width: 100%;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.8rem 1.5rem;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      max-width: 280px;
+      flex: 1 1 280px;
+      text-align: left;
+      color: white;
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #00B4DB;
+    }
+
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .feature-desc {
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    footer {
+      margin-top: 5rem;
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      width: 100%;
+      max-width: 960px;
+      padding-bottom: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      main h2 {
+        font-size: 2rem;
+      }
+
+      main p {
+        font-size: 1rem;
+      }
+
+      a.cta-button {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+      }
+
+      .features {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="gift-icon">🎁</div>
-    <h1>Welcome to SendSphere</h1>
-    <p><strong>Your gift is ready!</strong></p>
-    <p>User ID: <code>4521</code></p>
-    <p>Gift ID: <code>89345</code></p>
-    <p>Promo Type: <strong>Special Offer</strong></p>
-    <p style="margin-top: 1.5rem;">Enjoy your gift and explore more surprises with us.</p>
-  </div>
-  <div class="footer">SendSphere &copy; 2025</div>
+  <header>
+    <h1>SendSphere</h1>
+    <nav>
+      <a href="/reward.html">Redeem</a>
+      <a href="#">Tracking</a>
+      <a href="#">Pricing</a>
+      <a href="#">Support</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Reliable Parcel Delivery, Simplified</h2>
+    <p>SendSphere makes parcel delivery fast, secure, and easy—whether you're shipping locally or internationally.</p>
+    <a href="/reward.html" class="cta-button">Get Started</a>
+
+    <section class="features" aria-label="Key features of SendSphere">
+      <article class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <h3 class="feature-title">Fast & On-Time Delivery</h3>
+        <p class="feature-desc">We guarantee timely deliveries so your parcels always arrive when expected.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3 class="feature-title">Secure & Insured</h3>
+        <p class="feature-desc">Your shipments are protected with comprehensive insurance and secure handling.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3 class="feature-title">Easy Tracking</h3>
+        <p class="feature-desc">Track your parcels in real-time with our intuitive tracking tools.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 SendSphere. All rights reserved.
+  </footer>
 </body>
 </html>
